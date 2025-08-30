@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Webserv</title>
+    <style>
+        body {
+            /* MP4 video background will be handled by HTML video element */
+            background-color: #000000;
+            
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+        
+        /* Video background styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        h2 {
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(245, 245, 245, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        .test-section h2 {
+            color: #333;
+            text-shadow: none;
+            margin-top: 0;
+        }
+        .test-section p {
+            color: #333;
+            text-shadow: none;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0099ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/thegif.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>Test Page</h1>
+    <p>This is a test page to verify that the webserver is working correctly.</p>
+    
+    <div class="test-section">
+        <h2>Static File Serving</h2>
+        <p>If you can see this page, static file serving is working!</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Navigation</h2>
+        <p><a href="/">Back to Home</a></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Server Information</h2>
+        <p>This page is served by the Webserv HTTP server implemented in C++98.</p>
+    </div>
+</body>
+</html> 

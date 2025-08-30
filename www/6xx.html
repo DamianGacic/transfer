@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ERROR_CODE}} - {{ERROR_MESSAGE}}</title>
+    <style>
+        body {
+            /* MP4 video background will be handled by HTML video element */
+            background-color: #000000;
+            
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            color: #ffffff;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        /* Video background styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            margin-top: 50px;
+        }
+        h2 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        a {
+            color: #0099ff;
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #00ccff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/thegif.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>{{ERROR_CODE}}</h1>
+    <h2>{{ERROR_MESSAGE}}</h2>
+    <p>{{ERROR_DESCRIPTION}}</p>
+    <p><a href="/">Return to Home</a></p>
+</body>
+</html>

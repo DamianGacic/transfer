@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Code Testing - WebServ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .error-group {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .error-group h2 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .error-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .error-link {
+            display: block;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .error-link:hover {
+            background: #0056b3;
+        }
+        .info {
+            background: #e7f3ff;
+            border: 1px solid #b3d7ff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚨 WebServ Error Code Testing</h1>
+    
+    <div class="info">
+        <strong>Note:</strong> This page tests our comprehensive error handling system. 
+        All error pages now use dynamic templates (4xx.html, 5xx.html, 6xx.html) with 
+        the video background and dynamically generated content.
+    </div>
+
+    <div class="error-group">
+        <h2>🔴 4xx Client Errors</h2>
+        <p>These should all use the <code>4xx.html</code> template:</p>
+        <div class="error-list">
+            <a href="/nonexistent" class="error-link">404 - Not Found</a>
+            <a href="/forbidden" class="error-link">403 - Forbidden</a>
+            <a href="#" onclick="testMethod('POST', '/style.css')" class="error-link">405 - Method Not Allowed</a>
+            <a href="/really-really-really-long-url-that-exceeds-normal-limits-and-should-trigger-414-error-if-implemented" class="error-link">414 - URI Too Long</a>
+        </div>
+    </div>
+
+    <div class="error-group">
+        <h2>🔥 5xx Server Errors</h2>
+        <p>These should all use the <code>5xx.html</code> template:</p>
+        <div class="error-list">
+            <a href="/cgi-bin/broken_script.py" class="error-link">500 - Internal Server Error</a>
+            <a href="/cgi-bin/timeout_test.py" class="error-link">504 - Gateway Timeout</a>
+        </div>
+    </div>
+
+    <div class="error-group">
+        <h2>🔧 Template System Features</h2>
+        <ul>
+            <li>✅ <strong>Dynamic Content:</strong> Error code, message, and description are automatically generated</li>
+            <li>✅ <strong>Video Background:</strong> All errors use thegif.mp4 as background</li>
+            <li>✅ <strong>Comprehensive Coverage:</strong> Handles all 4xx (400-499), 5xx (500-599), and 6xx (600-699) ranges</li>
+            <li>✅ <strong>Fallback System:</strong> Unknown codes get generic messages based on their range</li>
+            <li>✅ <strong>Consistent Design:</strong> All error pages have the same simple, clean appearance</li>
+        </ul>
+    </div>
+
+    <div class="error-group">
+        <h2>📋 Implementation Details</h2>
+        <p><strong>Template Files:</strong></p>
+        <ul>
+            <li><code>www/4xx.html</code> - For all client errors (400-499)</li>
+            <li><code>www/5xx.html</code> - For all server errors (500-599)</li>
+            <li><code>www/6xx.html</code> - For future extension (600-699)</li>
+        </ul>
+        
+        <p><strong>Supported Error Codes:</strong></p>
+        <div style="font-family: monospace; font-size: 12px; background: #f8f9fa; padding: 10px; border-radius: 5px;">
+            <strong>4xx:</strong> 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 428, 429, 431, 451<br>
+            <strong>5xx:</strong> 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511<br>
+            <strong>6xx:</strong> 600 (and any future codes in 600-699 range)<br>
+            <strong>Nginx:</strong> 444, 494, 499
+        </div>
+    </div>
+
+    <script>
+        function testMethod(method, url) {
+            fetch(url, { method: method })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            const newWindow = window.open();
+                            newWindow.document.write(text);
+                        });
+                    }
+                })
+                .catch(error => console.log('Expected error:', error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - WebServ</title>
+    <link rel="stylesheet" href="/style.css?v=1">
+    <style>
+        .upload-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        .upload-form input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid #0099ff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .upload-form input[type="submit"] {
+            background: #0099ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .upload-form input[type="submit"]:hover {
+            background: #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/thegif.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>File Upload</h1>
+    <p>Upload files to the server</p>
+
+    <img src="/images/sticker_heart.jpg?v=1" alt="Heart Sticker" class="sticker sticker-bottom-right">
+
+    <div class="feature">
+        <h2>Upload Files</h2>
+        <p>Select a file to upload to the server. Supported file types include images, documents, and text files.</p>
+        
+        <div class="upload-form">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="file">Choose a file:</label><br>
+                <input type="file" id="file" name="file" required><br>
+                <input type="submit" value="Upload File">
+            </form>
+        </div>
+    </div>
+
+    <div class="feature">
+        <h2>Upload Guidelines</h2>
+        <ul>
+            <li>Maximum file size: 50MB</li>
+            <li>Supported formats: All common file types</li>
+            <li>Files will be stored in the uploads directory</li>
+            <li>Upload progress will be shown during transfer</li>
+        </ul>
+    </div>
+
+    <div class="feature">
+        <h2>Test with curl</h2>
+        <div class="code">
+            curl -X POST -F "file=@/path/to/your/file.txt" http://localhost:8080/upload
+        </div>
+    </div>
+
+    <div class="feature">
+        <h2>View Uploaded Files</h2>
+        <p><a href="/uploads">Browse uploaded files</a></p>
+    </div>
+
+    <div class="feature">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/features">Features</a></li>
+        </ul>
+    </div>
+
+    <p><em>Server running on port 8080</em></p>
+</body>
+</html> 

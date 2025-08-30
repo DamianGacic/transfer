@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .video-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        .test-video {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="/thegif.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <div class="content">
+        <h1>Video Background Test</h1>
+        <p>If you can see an animated background, the video is working!</p>
+        
+        <h2>Direct Video Test</h2>
+        <video class="test-video" controls>
+            <source src="/thegif.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <p>Try clicking the play button above to test if the video file loads correctly.</p>
+        
+        <h2>Debug Info</h2>
+        <p>Video file: /thegif.mp4</p>
+        <p>File size: 2.9MB</p>
+        <p>Format: MP4</p>
+        
+        <h2>Browser Console</h2>
+        <p>Open browser developer tools (F12) and check the Console tab for any errors.</p>
+        <p>Also check the Network tab to see if thegif.mp4 loads successfully.</p>
+    </div>
+</body>
+</html> 

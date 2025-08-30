@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Test</title>
+    <style>
+        body {
+            /* MP4 video background will be handled by HTML video element */
+            background-color: #000000;
+            
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        /* Video background styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        h2 {
+            color: #333;
+            text-shadow: none;
+        }
+        p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        .box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .box h2 {
+            color: #333;
+            text-shadow: none;
+        }
+        .box p {
+            color: #333;
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/thegif.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>Simple Test Page</h1>
+    <div class="box">
+        <h2>If you can see this, HTML is working!</h2>
+        <p>This is a simple test page with inline CSS.</p>
+        <p>Background should be gray, this box should be white.</p>
+    </div>
+    <div class="box">
+        <h2>Server Status</h2>
+        <p>✅ Server is running on port 8080</p>
+        <p>✅ This HTML file is being served</p>
+    </div>
+</body>
+</html> 
